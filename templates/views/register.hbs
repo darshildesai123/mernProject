@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{>links}}
+        <title>Document</title>
+    </head>
+    <body>
+        {{>navbar}}
+        <form class="col-md-8 m-5" action="/register" method="POST">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <label class="form-label">Fast
+                        Name</label>
+                    <input type="text" class="form-control" id="inputname4"
+                        name="firstname">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Last
+                        Name</label>
+                    <input type="text" class="form-control" id="inputname4"
+                        name="lastname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label
+                        class="form-label">Email</label>
+                    <input type="email" class="form-control"
+                        id="inputEmail4" name="email">
+                </div>
+                <div class="col-4">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"
+                            name="gender" id="gridRadios1"
+                            value="option1"
+                            checked>
+                        <label class="form-check-label">
+                            Male
+                        </label>
+
+                        <div>
+                            <input class="form-check-input" type="radio"
+                                name="gender" id="gridRadios2"
+                                value="option2">
+                            <label class="form-check-label">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Phone
+                        2</label>
+                    <input type="number" class="form-control"
+                        id="inputPhone2"
+                        placeholder="Your Phone" name="phone">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Age</label>
+                    <input type="text" class="form-control" id="inputAge"
+                        name="age">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label
+                        class="form-label">Password</label>
+                    <input type="password" class="form-control"
+                        id="inputPassword4" name="password">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Confirm
+                        Password</label>
+                    <input type="password" class="form-control"
+                        id="inputPassword4" name="confirmpassword">
+                </div>
+            </div>
+            <div class="row mt-5 col-12">
+                <input type="submit" value="Register" class="btn btn-primary">
+            </div>
+        </form>
+    </body>
+</html>
