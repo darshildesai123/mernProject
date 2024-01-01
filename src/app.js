@@ -51,7 +51,7 @@ app.get("/logout", auth, async (req, res) => {
     // });
 
     // logout from all devices
-    // req.user.tokens = [];
+    req.user.tokens = [];
 
     res.clearCookie("jwt");
 
