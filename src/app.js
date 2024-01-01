@@ -7,9 +7,10 @@ const app = express();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const auth = require("./middleware/auth");
 
 require("./db/conn");
-const Register = require("./registers");
+const Register = require("./models/registers");
 
 const port = process.env.PORT || 3000;
 
@@ -35,9 +36,31 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/secret", (req, res) => {
+app.get("/secret", auth, (req, res) => {
   console.log(`This is the cookie ${req.cookies.jwt}`);
   res.render("secret");
+});
+
+app.get("/logout", auth, async (req, res) => {
+  try {
+    console.log(req.user);
+
+    // for single logout
+    // req.user.tokens = req.user.tokens.filter((currElement) => {
+    //   return currElement.token !== req.token;
+    // });
+
+    // logout from all devices
+    req.user.tokens = [];
+
+    res.clearCookie("jwt");
+
+    console.log("logout successfully");
+    await req.user.save();
+    res.render("login");
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 // CRUD Operations
